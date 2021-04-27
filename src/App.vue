@@ -1,28 +1,30 @@
 <template>
-  <router />
+  <div id="nav">
+    <router-link to="/register">Register</router-link> |
+    <router-link to="/login">Login</router-link>
+  </div>
+  <router-view />
 </template>
-
-<script>
-export default {
-  name: "App",
-  components: {},
-};
-</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 body {
-  width: 100%;
   height: 100vh;
-  margin-top: 60px;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    28deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(3, 135, 117, 1) 52%,
-    rgba(24, 132, 133, 1) 100%
-  );
+  background: linear-gradient(28deg, #020024, #038775 52%, #aded82);
   background-repeat: no-repeat;
   font-family: "Poppins", sans-serif;
+}
+#nav {
+  margin: 0 auto;
+  padding: 30px;
+  text-align: center;
+}
+#nav a {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+#nav a.router-link-exact-active {
+  border-bottom: 1px solid white;
 }
 </style>
