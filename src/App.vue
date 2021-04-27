@@ -14,6 +14,7 @@ body {
   background: linear-gradient(28deg, #020024, #038775 52%, #aded82);
   background-repeat: no-repeat;
   font-family: "Poppins", sans-serif;
+  padding-bottom: 2rem;
 }
 #nav {
   margin: 0 auto;

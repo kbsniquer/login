@@ -26,7 +26,7 @@
           </p>
         </div>
         <div class="btn-block">
-          <input type="submit" value="Cancel" class="btn-cancel" />
+          <button class="btn-reset" @click.prevent="reset">Reset</button>
           <input type="submit" value="Submit" class="btn-submit" />
         </div>
       </form>
@@ -57,6 +57,11 @@ export default {
         console.log("success");
       }
     },
+    reset() {
+      this.username = null;
+      this.email = null;
+      this.password = null;
+    },
   },
   computed: {
     passwordValidation() {
@@ -85,6 +90,7 @@ h1 {
   text-align: center;
   font-weight: 900;
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 p {
   margin: 0 auto;
@@ -123,7 +129,7 @@ label {
 }
 .container {
   margin: 0 auto;
-  width: 65%;
+  width: 70%;
   border-radius: 10px;
   background: white;
   box-shadow: 5px 5px 15px 5px rgba(1, 66, 46, 0.24);
@@ -139,14 +145,14 @@ label {
   background-color: rgba(3, 135, 117, 1);
   margin-left: 1rem;
 }
-.btn-cancel {
+.btn-reset {
   background-color: rgb(34, 34, 34);
 }
 .btn-block {
   text-align: center;
 }
 .btn-submit,
-.btn-cancel {
+.btn-reset {
   border: 0;
   padding: 0.75rem;
   width: 40%;
@@ -160,5 +166,21 @@ label {
 }
 .validations p:last-child {
   margin-bottom: 1rem;
+}
+@media only screen and (max-width: 1030px) {
+  img {
+    display: none;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 3rem;
+    width: 60%;
+  }
 }
 </style>
