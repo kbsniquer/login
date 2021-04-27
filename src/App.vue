@@ -1,5 +1,6 @@
 <template>
   <div id="nav">
+    <router-link to="/">Home</router-link> |
     <router-link to="/register">Register</router-link> |
     <router-link to="/login">Login</router-link>
   </div>
@@ -23,8 +24,11 @@ body {
   font-weight: bold;
   color: white;
   text-decoration: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.25rem;
 }
 #nav a.router-link-exact-active {
-  border-bottom: 1px solid white;
+  color: #004f44;
 }
 </style>
