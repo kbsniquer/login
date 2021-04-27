@@ -11,7 +11,7 @@
           us.
         </p>
       </div>
-      <form @submit.prevent="displayErrors()">
+      <form @submit.prevent="register()">
         <div class="form-container">
           <label for="username">Username </label>
           <input type="text" name="username" v-model="username" required />
@@ -51,19 +51,11 @@ export default {
     };
   },
   methods: {
-    displayErrors() {
-      if (!this.password.containsLength) {
-        this.error = "Password needs to be at least 8 characters long.";
-        return false;
-      } else if (!this.password.containsSpecial) {
-        this.error = "Password needs to contain a special character.";
-      } else {
-        this.error = "";
-        this.addAccount();
+    register() {
+      console.log(this.passwordValidation);
+      if (this.meetsCriteria) {
+        console.log("success");
       }
-    },
-    addAccount() {
-      console.log("success");
     },
   },
   computed: {
@@ -75,11 +67,13 @@ export default {
         }
       }
       if (errors.length === 0) {
-        this.addAccount();
-        return { valid: true, errors };
+        return { valid: true, success: true, errors };
       } else {
-        return { valid: false, errors };
+        return { valid: false, success: false, errors };
       }
+    },
+    meetsCriteria() {
+      return this.passwordValidation.success === true;
     },
   },
 };
@@ -94,7 +88,7 @@ h1 {
 }
 p {
   margin: 0 auto;
-  width: 80%;
+  width: 75%;
   text-align: center;
   font-size: 0.75rem;
 }
@@ -121,8 +115,7 @@ label {
   grid-column: labels;
   grid-row: auto;
 }
-.form-container > input,
-.form-container > textarea {
+.form-container > input {
   grid-column: controls;
   grid-row: auto;
   border: none;
